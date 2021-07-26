@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve"
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+, "components/Layout/style.js", "components/Layout/index.js", "pages/_app.js", "pages/index.js", "store/types.js", "store/store.js", "store/index.js", "store/sagas/persona.js", "store/sagas/index.js", "store/reducers/persona.js", "store/reducers/index.js", "store/actions/persona.js", "store/actions/index.js", "components/Table/index.js"  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
