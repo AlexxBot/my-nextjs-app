@@ -1,4 +1,4 @@
-import { all, put, takeLatest } from "@redux-saga/core/effects";
+import { all, call, put, takeLatest } from "@redux-saga/core/effects";
 import * as t from '../types'
 import axios from 'axios'
 
@@ -9,7 +9,7 @@ import {URL} from '../../global'
 function* getPersonas() {
 	try {
 		//console.log(`${URL}/products`)
-		const response = yield axios.get(`${URL}/products`)
+		const response = yield call(axios.get(`${URL}/products`))
         //console.log('esta es la respuesta ', response.data)
         //aqui faltari validar si la respuesta es 200
 		yield put({
