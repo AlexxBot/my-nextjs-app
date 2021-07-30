@@ -1,19 +1,20 @@
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch, useSelector} from "react-redux"
+import { useState, useEffect } from 'react'
 import ReactDOM from "react-dom";
 
 import { CheckSVG, CloseSVG } from "../../icons";
 
 import { Formik, Form, Field } from "formik";
 import {
-	addProduct,
-	setModalOpen,
-	setSelectedEmployee,
-	updateEmployee,
+    addProduct,
+    setModalOpen,
+    setSelectedProduct,
+    updateProduct,
 } from "../../store";
 
 
-const product = {
-    _id:'',
+const productInitial = {
+    _id: '',
     name: '',
     category: '',
     price: 0,
@@ -21,19 +22,44 @@ const product = {
 
 }
 
-export function Modal(){
+export function Modal() {
 
     const state = useSelector((state) => state.product)
+
+    //const [product, setProduct] = useState(productInitial)
 
     const dispatch = useDispatch()
 
     const closeModal = () => {
-		//reset();
-		dispatch(setModalOpen(false));
-		//dispatch(setSelectedEmployee(undefined));
-	};
+        //reset();
+        dispatch(setModalOpen(false));
+        dispatch(setSelectedProduct(undefined));
+    };
 
-    //const closeModal = ()
+    const submit = (values) => {
+        /* if (values) {
+            closeModal()
+        } */
+        if (state.selectedProduct) {
+            console.log('se quiere actualizar el actualizar')
+            //dispatch(updateProduct(state.selectedProduct))
+            dispatch(updateProduct(state.token, values))
+        }
+        else {
+            console.log('se va a ejecutar el add en la vista')
+            dispatch(addProduct(state.token, values));
+        }
+        if (values) {
+            closeModal()
+        }
+    }
+
+    /* useEffect(() => {
+        console.log('se entro a actualizar produto seleccionado en la vista con este producto ', state.selectedProduct)
+        if (state.selectedProduct) {
+            setProduct(state.selectedProduct)
+        }
+    }, [state.selectedProduct]) */
 
     return (
         state.isModalOpen ?
@@ -55,7 +81,7 @@ export function Modal(){
                         </header>
 
                         <Formik
-                            initialValues={product}
+                            initialValues={state.selectedProduct || productInitial}
                             validate={
                                 values => {
                                     const errors = {}
@@ -67,8 +93,8 @@ export function Modal(){
                             }
                             onSubmit={(values, { setSubmitting }) => {
 
-                                //guardar(values)
-                                dispatch(addProduct(state.token, values))
+                                //dispatch(addProduct(state.token, values))
+                                submit(values)
 
                             }
                             }

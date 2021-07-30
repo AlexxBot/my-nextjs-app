@@ -75,15 +75,15 @@ export default function Home() {
             </section>
             : <div>
               <Header/>
-              <Table token={userLogin.token}/>
+              <Table/>
               <Modal />
               </div>}
 
       </Layout>
 
-      {/* <style jsx>{styles}
+      <style jsx>{styles}
 
-      </style> */}
+      </style>
     </>
   )
 }
