@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { PersonAddSVG } from "@/icons";
-import { setModalOpen } from "@/store";
+import { PersonAddSVG } from 'icons/index'
+import { setModalOpen } from "../../store";
 
 export function Header() {
 	const dispatch = useDispatch();
@@ -8,7 +8,7 @@ export function Header() {
 	return (
 		<header className="header">
 			<h1 className="header__h1">
-				Manage <span>Employees</span>
+				Manage <span>Products</span>
 			</h1>
 			<button
 				className="btn btn__primary btn__icon"

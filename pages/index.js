@@ -11,7 +11,12 @@ import Layout from '../components/Layout'
 import Button from '../components/Button'
 import LogoBS from '../components/Icons/LogoBS'
 import { Table } from '../components/Table'
+import { Header } from '../components/Header'
+import { Modal } from '../components/Modal'
 import authService from 'services/authService'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { setToken } from '../store'
 
 
 const userLoginInitial = {
@@ -27,6 +32,10 @@ export default function Home() {
 
   const [userLogin, setUserLogin] = useState(userLoginInitial)
 
+  const state = useSelector((state) => state.product)
+
+  const dispatch = useDispatch()
+
 
   const fillLogin = (e) => {
     setUserLogin({ ...userLogin, [e.target.name]: e.target.value })
@@ -36,7 +45,10 @@ export default function Home() {
     const { isLogged, token } = await authService.signin({ email: userLogin.email, password: userLogin.password })
 
     console.log('token ',token)
+    dispatch(setToken(token))
     setUserLogin({ ...userLogin, isLogged: isLogged, token: token })
+
+    
 
   }
 
@@ -61,7 +73,11 @@ export default function Home() {
                 </Button>
               </div>
             </section>
-            : <Table token={userLogin.token}/>}
+            : <div>
+              <Header/>
+              <Table token={userLogin.token}/>
+              <Modal />
+              </div>}
 
       </Layout>
 

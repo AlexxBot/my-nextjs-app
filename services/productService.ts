@@ -10,7 +10,7 @@ class ProductService{
         this.URL_PRODUCT = `${URL}/products`
     }
 
-    getPersonas = async () : Promise<IProduct[]>  =>{
+    getProducts = async () : Promise<IProduct[]>  =>{
         try {
 
             console.log(this.URL_PRODUCT)
@@ -29,7 +29,7 @@ class ProductService{
         }       
     }
     
-    deletePersona = async (token: string, id: string) : Promise<boolean> => {
+    deleteProduct = async (token: string, id: string) : Promise<boolean> => {
         const config = {
             headers: {
               'x-access-token': token
@@ -51,7 +51,7 @@ class ProductService{
         }
     } 
 
-    getPersona = async (id: string): Promise<IProduct> => {
+    getProduct = async (id: string): Promise<IProduct> => {
         try{
             const response = await axios.get(`${this.URL_PRODUCT}/${id}`)
             if(response.status === 200){
@@ -64,16 +64,16 @@ class ProductService{
         }
     }
 
-    savePersona = async (token: string, product: IProduct): Promise<{exito: boolean ,newProduct: IProduct}> => {
+    saveProduct = async (token: string, product: IProduct): Promise<{exito: boolean ,newProduct: IProduct}> => {
         try{
             const config = {
                 headers: {
                   'x-access-token': token
                 }
             }
-            //console.log('este el el cuerpo en el servicio ', product)
+            console.log('este el el cuerpo en el servicio ', product)
             const response = await axios.post(this.URL_PRODUCT, product, config)
-            //console.log('esta es la respuesta ', response)
+            console.log('esta es la respuesta ', response)
             if(response.status === 201){
                 return {exito: true, newProduct: response.data}
             }   

@@ -1,1 +1,1 @@
-export { default } from './persona'
+export { default } from './product'
