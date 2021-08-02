@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "components/Layout/style.js", "components/Layout/index.js", "pages/_app.js", "pages/index.js", "store/types.js", "store/store.js", "store/index.js", "store/sagas/product.js", "store/sagas/index.js", "store/reducers/product.js", "store/reducers/index.js", "store/actions/product.js", "store/actions/index.js", "components/Table/index.js"  ],
+  ],
   "exclude": [
     "node_modules"
   ]

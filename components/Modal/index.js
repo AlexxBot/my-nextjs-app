@@ -5,6 +5,9 @@ import ReactDOM from "react-dom";
 import { CheckSVG, CloseSVG } from "../../icons";
 
 import { Formik, Form, Field } from "formik";
+
+//import { IProduct } from "types/IProduct"
+
 import {
     addProduct,
     setModalOpen,

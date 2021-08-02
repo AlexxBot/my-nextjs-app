@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import React from 'react'
-import styles from './style'
+import styles from './styles/style'
 
 import { useState } from 'react'
 
@@ -10,9 +10,9 @@ import { useState } from 'react'
 import Layout from '../components/Layout'
 import Button from '../components/Button'
 import LogoBS from '../components/Icons/LogoBS'
-import { Table } from '../components/Table'
-import { Header } from '../components/Header'
-import { Modal } from '../components/Modal'
+
+import Login from './login'
+
 import authService from 'services/authService'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -30,7 +30,7 @@ const userLoginInitial = {
 
 export default function Home() {
 
-  const [userLogin, setUserLogin] = useState(userLoginInitial)
+  /* const [userLogin, setUserLogin] = useState(userLoginInitial)
 
   const state = useSelector((state) => state.product)
 
@@ -44,21 +44,21 @@ export default function Home() {
   const logear = async () => {
     const { isLogged, token } = await authService.signin({ email: userLogin.email, password: userLogin.password })
 
-    console.log('token ',token)
+    console.log('token ', token)
     dispatch(setToken(token))
     setUserLogin({ ...userLogin, isLogged: isLogged, token: token })
 
-    
 
-  }
+
+  } */
 
 
   return (
     <>
       <Layout>
-        {
-          console.log(userLogin.isLooged)}
-        {
+
+
+        {/* {
           !userLogin.isLogged === true ?
             <section>
               <img src='/bslogo.png' width='30px' height='30px' />
@@ -74,16 +74,19 @@ export default function Home() {
               </div>
             </section>
             : <div>
-              <Header/>
-              <Table/>
+              <Navigator />
+              <Header />
+              <Table />
               <Modal />
-              </div>}
+            </div>} */}
+            
+            <Login/>
 
       </Layout>
 
-      <style jsx>{styles}
+      {/* <style jsx>{styles}
 
-      </style>
+      </style> */}
     </>
   )
 }

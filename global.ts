@@ -1,1 +1,1 @@
-export const URL = 'https://api-rest-auth-node.herokuapp.com'
+export const URL = 'https://api-rest-auth-node.herokuapp.com' /* process.env.API_URL || 'no entro' */
