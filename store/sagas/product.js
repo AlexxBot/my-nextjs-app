@@ -1,9 +1,8 @@
 import { all, call, put, takeLatest } from "@redux-saga/core/effects";
-import * as t from '../types'
-import axios from 'axios'
+import * as t from '../types/types'
 import productService from "./../../services/productService";
 
-import { URL } from '../../global'
+
 
 //se pone el * porque es una stream por lo tanto retorna cambios segun se llamado para notificar a los componentos que lo llaman
 

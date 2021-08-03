@@ -1,5 +1,5 @@
 import { HYDRATE } from 'next-redux-wrapper'//hydrate is use para repintar solo se que nos importa
-import * as t from "../types"
+import * as t from "../types/types"
 
 const initialState = {
     productList: [],

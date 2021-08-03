@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from "react-redux"
 import { PencilSVG, TrashSVG, PersonAddSVG, CloseSVG } from 'icons/index'
-import { deleteProduct, getProducts, setSelectedProduct, setModalOpen } from '../../store'
+//import { deleteProduct, getProducts, setSelectedProduct, setModalOpen } from '../../store'
+
+import { actions } from '../../store'
 
 import { useEffect, useState, useForm } from "react"
 
@@ -14,7 +16,7 @@ export function Table({ token }) {
 	const dispatch = useDispatch()
 
 	useEffect(() => {
-		dispatch(getProducts());//una vez ejecutado esto el estado se acutaliza con los valores de la lista
+		dispatch(actions.product.getProducts());//una vez ejecutado esto el estado se acutaliza con los valores de la lista
 	}, [dispatch])
 
 	return (
@@ -40,8 +42,8 @@ export function Table({ token }) {
 							<button
 								className="btn btn__compact btn__edit"
 								onClick={() => {
-									dispatch(setSelectedProduct(_id));
-									dispatch(setModalOpen(true));
+									dispatch(actions.product.setSelectedProduct(_id));
+									dispatch(actions.product.setModalOpen(true));
 								}}
 							>
 								<PencilSVG />
@@ -49,7 +51,7 @@ export function Table({ token }) {
 							<button
 								className="btn btn__compact btn__delete"
 								onClick={() => {
-									dispatch(deleteProduct(state.token, _id));
+									dispatch(actions.product.deleteProduct(state.token, _id));
 								}}
 							>
 								<TrashSVG />

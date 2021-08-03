@@ -8,13 +8,14 @@ import { Formik, Form, Field } from "formik";
 
 //import { IProduct } from "types/IProduct"
 
-import {
+/* import {
     addProduct,
     setModalOpen,
     setSelectedProduct,
     updateProduct,
-} from "../../store";
+} from "../../store"; */
 
+import { actions }  from '../../store'
 
 const productInitial = {
     _id: '',
@@ -35,8 +36,8 @@ export function Modal() {
 
     const closeModal = () => {
         //reset();
-        dispatch(setModalOpen(false));
-        dispatch(setSelectedProduct(undefined));
+        dispatch(actions.product.setModalOpen(false));
+        dispatch(actions.product.setSelectedProduct(undefined));
     };
 
     const submit = (values) => {
@@ -46,11 +47,11 @@ export function Modal() {
         if (state.selectedProduct) {
             console.log('se quiere actualizar el actualizar')
             //dispatch(updateProduct(state.selectedProduct))
-            dispatch(updateProduct(state.token, values))
+            dispatch(actions.product.updateProduct(state.token, values))
         }
         else {
             console.log('se va a ejecutar el add en la vista')
-            dispatch(addProduct(state.token, values));
+            dispatch(actions.product.addProduct(state.token, values));
         }
         if (values) {
             closeModal()

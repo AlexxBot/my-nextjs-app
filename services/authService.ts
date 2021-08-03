@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { IAuth } from 'types/IAuth'
+import { User } from 'types/Auth'
 import { URL } from '../global'
 
 class AuthService {
@@ -10,7 +10,7 @@ class AuthService {
         this.URL_AUTH = `${URL}/auth`
     }
 
-    signin = async (userLogin: IAuth): Promise<{isLogged: boolean, token: string}> => {
+    signin = async (userLogin: User): Promise<{isLogged: boolean, token: string}> => {
         try {
             const response = await axios.post(`${this.URL_AUTH}/signin`, userLogin)
             if (response.status === 200) {

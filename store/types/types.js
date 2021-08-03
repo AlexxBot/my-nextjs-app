@@ -1,5 +1,5 @@
-export const SET_TOKEN = 'SET_TOKEN'
 
+export const SET_TOKEN = 'SET_TOKEN'
 export const MODAL_OPEN = "MODAL_OPEN";
 
 export const PRODUCT_SELECTED = "PRODUCT_SELECTED";

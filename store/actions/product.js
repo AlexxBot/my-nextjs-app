@@ -1,4 +1,4 @@
-import * as t from '../types'
+import * as t from '../types/types'
 
 export const getProducts = () => {
     console.log('entro a la action de requerir products')
@@ -11,6 +11,13 @@ export const setSelectedProduct = (id) => {
     return {
         type: t.PRODUCT_SELECTED,
         payload : id
+    }
+}
+
+export const setToken = (token) => {
+    return{
+        type: t.SET_TOKEN,
+        payload: token
     }
 }
 

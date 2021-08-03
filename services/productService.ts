@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IProduct } from 'types/IProduct';
+import { Product } from 'types/Product';
 import { URL} from '../global'
 
 class ProductService{
@@ -10,7 +10,7 @@ class ProductService{
         this.URL_PRODUCT = `${URL}/products`
     }
 
-    getProducts = async () : Promise<IProduct[]>  =>{
+    getProducts = async () : Promise<Product[]>  =>{
         try {
 
             console.log(this.URL_PRODUCT)
@@ -51,7 +51,7 @@ class ProductService{
         }
     } 
 
-    getProduct = async (id: string): Promise<IProduct> => {
+    getProduct = async (id: string): Promise<Product> => {
         try{
             const response = await axios.get(`${this.URL_PRODUCT}/${id}`)
             if(response.status === 200){
@@ -64,7 +64,7 @@ class ProductService{
         }
     }
 
-    saveProduct = async (token: string, product: IProduct): Promise<{exito: boolean ,newProduct: IProduct}> => {
+    saveProduct = async (token: string, product: Product): Promise<{exito: boolean ,newProduct: Product}> => {
         try{
             const config = {
                 headers: {
@@ -87,7 +87,7 @@ class ProductService{
         }
     }
 
-    updateProduct = async (token: string, product: IProduct): Promise<{exito: boolean ,updatedProduct: IProduct}> => {
+    updateProduct = async (token: string, product: Product): Promise<{exito: boolean ,updatedProduct: Product}> => {
         try{
             const config = {
                 headers: {
