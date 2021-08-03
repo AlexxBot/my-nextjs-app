@@ -6,12 +6,10 @@ import { actions } from '../../store'
 
 import { useEffect, useState, useForm } from "react"
 
-
-
-import { Formik, Field, Form } from 'formik';
-
-export function Table({ token }) {
+export function Table() {
 	const state = useSelector((state) => state.product);
+
+	const stateAuth = useSelector((state) => state.auth)
 
 	const dispatch = useDispatch()
 
@@ -51,7 +49,7 @@ export function Table({ token }) {
 							<button
 								className="btn btn__compact btn__delete"
 								onClick={() => {
-									dispatch(actions.product.deleteProduct(state.token, _id));
+									dispatch(actions.product.deleteProduct(stateAuth.token, _id));
 								}}
 							>
 								<TrashSVG />

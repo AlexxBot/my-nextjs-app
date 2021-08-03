@@ -13,7 +13,7 @@ import Router from 'next/router'
 import styles from './styles/style'
 
 const userLoginInitial = {
-    email: '',
+    userName: '',
     password: ''
 }
 
@@ -34,9 +34,10 @@ export default function Login() {
     }
 
     useEffect(() => {
-        
-        
-    }, [])
+        if(stateAuth.isLogged === true){
+            Router.push('/product')
+        }     
+    }, [stateAuth.isLogged])
 
     const logear = async () => {
         const { isLogged, token } = await authService.signin({ email: userLogin.email, password: userLogin.password })
@@ -56,10 +57,10 @@ export default function Login() {
                 <img src='/bslogo.png' width='30px' height='30px' />
                 <h2>BS aplication</h2>
                 <h3> This is a demo to BS crud</h3>
-                <input type='text' placeholder='email' name="email" value={userLogin.email} onChange={fillLogin} />
+                <input type='text' placeholder='email' name="userName" value={userLogin.userName} onChange={fillLogin} />
                 <input type='password' placeholder='password' name='password' value={userLogin.password} onChange={fillLogin} />
                 <div>
-                    <Button onClick={logear}>
+                    <Button onClick={login}>
                         Login
                     </Button>
                 </div>

@@ -94,7 +94,7 @@ function* watchUpdateProduct() {
 	yield takeLatest(t.PRODUCT_UPDATE_REQUESTED, updateProduct);
 }
 
-export default function* rootSaga() {
+export default function* productSaga() {
 	yield all([
 		watchGetProducts(),
 		watchSaveProduct(),

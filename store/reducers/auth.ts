@@ -1,31 +1,36 @@
 import * as t from '../types/auth-types' 
+import { Action } from '../../types'
 
 const authInitialState: State = {
     userName: '',
-    token:''
+    token:'',
+    isLogged: false
 }
 
 type State = {
-    userName: String,
-    token: String
-}
-
-type Action<T> = {
-    type: String,
-    payload: T
-
+    userName: string,
+    token: string,
+    isLogged: boolean
 }
 
 
-export const authReducer = (state = authInitialState, action : Action<any>) : State => {
+const authReducer = (state = authInitialState, action : Action<any>) : State => {
+    console.log('este es la action que se esta ejecutando', action)
     switch (action.type) {
         case t.LOGIN_SUCCEEDED:
             return {
                 ...state,
-                userName: action.payload.userName,
-                token: action.payload.token
+                ...action.payload
             }    
+        case t.LOGOUT:
+            return {
+                userName: '',
+                token: '',
+                isLogged: false
+            }
         default:
             return state
     }
 }
+
+export default authReducer

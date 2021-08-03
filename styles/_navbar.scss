@@ -1,13 +1,49 @@
+
+
+.bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+
+    align-items: center;
+    align-content: center;
+    background-color: $color-success;
+    padding : 10px;
+
+    &__body{
+        flex-grow: 1;
+    }
+
+    &__trailing {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        &__element {
+            padding: 0px 10px;
+        }
+    }
+
+    
+}
+
+.title {
+    color: white;
+    font-weight: bold;
+}
+
 .navbar{
     display: flex;
     flex-direction: row;
     justify-content: start;
     align-items: center;
     align-content: center;
-    background-color: $color-success;
+    /* background-color: $color-success; */
     list-style:none;
     /* border-radius: 100px; */
-    padding : 10px;
+    /* padding : 10px; */
+    padding-left: 10px;
 
     &__element {
         text-decoration: white ;

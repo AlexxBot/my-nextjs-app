@@ -12,7 +12,7 @@ class AuthService {
 
     signin = async (userLogin: User): Promise<{isLogged: boolean, token: string}> => {
         try {
-            const response = await axios.post(`${this.URL_AUTH}/signin`, userLogin)
+            const response = await axios.post(`${this.URL_AUTH}/signin`, {email: userLogin.userName, ...userLogin})
             if (response.status === 200) {
                 return { isLogged: true, token: response.data.token};
             }

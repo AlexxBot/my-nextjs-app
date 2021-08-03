@@ -9,3 +9,9 @@ export const login = (user: User): Action<User> => {
         payload: user
     }
 }
+
+export const logout = () => {
+    return {
+        type: t.LOGOUT
+    }
+}

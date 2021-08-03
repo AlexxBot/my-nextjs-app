@@ -30,6 +30,8 @@ export function Modal() {
 
     const state = useSelector((state) => state.product)
 
+    const stateAuth = useSelector((state) => state.auth)
+
     //const [product, setProduct] = useState(productInitial)
 
     const dispatch = useDispatch()
@@ -47,11 +49,11 @@ export function Modal() {
         if (state.selectedProduct) {
             console.log('se quiere actualizar el actualizar')
             //dispatch(updateProduct(state.selectedProduct))
-            dispatch(actions.product.updateProduct(state.token, values))
+            dispatch(actions.product.updateProduct(stateAuth.token, values))
         }
         else {
             console.log('se va a ejecutar el add en la vista')
-            dispatch(actions.product.addProduct(state.token, values));
+            dispatch(actions.product.addProduct(stateAuth.token, values));
         }
         if (values) {
             closeModal()
@@ -97,7 +99,7 @@ export function Modal() {
                             }
                             onSubmit={(values, { setSubmitting }) => {
 
-                                //dispatch(addProduct(state.token, values))
+                                //dispatch(addProduct(stateAuth.token, values))
                                 submit(values)
 
                             }

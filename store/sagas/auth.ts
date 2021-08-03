@@ -29,4 +29,8 @@ function * watchLogin() {
     yield takeLatest(t.LOGIN_REQUESTED, login)   
 }
 
-//export default function * root
+export default function * authSaga(){
+    yield all([
+        watchLogin()
+    ])
+}
