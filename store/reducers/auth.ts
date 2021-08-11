@@ -8,9 +8,9 @@ const authInitialState: State = {
 }
 
 type State = {
-    userName: string,
+    userName: string, 
     token: string,
-    isLogged: boolean
+    isLogged: boolean 
 }
 
 

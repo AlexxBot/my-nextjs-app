@@ -15,9 +15,6 @@ export default function Product() {
                 <Table />
                 <Modal />
             </div>
-
-
-
             <style jsx>{formStyle}
 
             </style>

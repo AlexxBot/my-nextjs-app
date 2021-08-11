@@ -20,6 +20,7 @@ export function Navigator() {
             Router.push('/')
         }
     }, [stateAuth.isLogged])
+
     return (
         <div className='bar'>
             <div className='bar__leading'>
@@ -37,9 +38,20 @@ export function Navigator() {
                             <a className='navbar__texto'>About</a>
                         </Link>
                     </li>
-                    <li>
+                    <li className='navbar__element'>
                         <Link href='/product'>
                             <a className='navbar__texto'>Products</a>
+                        </Link>
+                    </li>
+                    <li className='navbar__element'>
+                        <Link href='/user'>
+                            <a className='navbar__texto'>Users</a>
+                        </Link>
+                    </li>
+
+                    <li className='navbar__element'>
+                        <Link href='/reporte'>
+                            <a className='navbar__texto'>Reporte</a>
                         </Link>
                     </li>
                 </ul>

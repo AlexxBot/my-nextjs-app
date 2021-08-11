@@ -32,7 +32,21 @@ export default function Login() {
     const login = () => {
         dispatch(actions.auth.login(userLogin))
     }
+    /* const PUBLIC_VAPID_KEY='BFLVu4t6fJfMBLnsxxiG3U4hc888-tF1JmBzwCeOuJLckrFvmypJONHQV4RFYkrRcxaNejTFHxC7iiYBK2R8tSU'
 
+    useEffect(async () => {
+
+        const register = await navigator.serviceWorker.register('/worker.js',
+        {
+            scope:''
+        })
+
+        console.log('new worker registered')
+        authService.suscription('esto viene desde aplicacion nextjs').then((mensaje) => {
+            console.log(' este es el mensaje renderizado desde la vista', mensaje)
+        })
+    }, [])
+ */
     useEffect(() => {
         if(stateAuth.isLogged === true){
             Router.push('/product')

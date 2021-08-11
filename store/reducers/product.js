@@ -4,8 +4,8 @@ import * as t from "../types/types"
 const initialState = {
     productList: [],
     selectedProduct: undefined,
-    isModalOpen: false,
-    token: ''
+    isModalOpen: false
+    //token: ''
 }
 
 const productReducer = (state = initialState, action) => {
@@ -13,11 +13,11 @@ const productReducer = (state = initialState, action) => {
     switch (action.type) {
         case HYDRATE:
             return { ...state, ...action.payload }
-        case t.SET_TOKEN:
+        /* case t.SET_TOKEN:
             return {
                 ...state,
                 token: action.payload
-            }
+            } */
         case t.MODAL_OPEN:
             return {
                 ...state,

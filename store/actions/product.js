@@ -14,12 +14,12 @@ export const setSelectedProduct = (id) => {
     }
 }
 
-export const setToken = (token) => {
+/* export const setToken = (token) => {
     return{
         type: t.SET_TOKEN,
         payload: token
     }
-}
+} */
 
 export const setModalOpen = (isModalOpen) => {
     console.log('se ejecuto la action show modal')
